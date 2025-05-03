@@ -13,4 +13,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "KRecallPluginTemplate"
+rootProject.name = "OpenAIAPIOCR"

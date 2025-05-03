@@ -1,19 +1,21 @@
-name: Release Build
+name: Publish Release
 
 on:
   release:
     types: [published]
 
 jobs:
-  build-and-attach:
+  build-and-release:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # 允许写入 Release
+      contents: write  # 需要权限来上传 release 资源
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
@@ -21,12 +23,12 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build shadowJar
-        run: ./gradlew shadowJar
+      - name: Build with Gradle
+        run: ./gradlew shadowJar --no-daemon --no-build-cache
 
-      - name: Upload Package to Release
-        uses: softprops/action-gh-release@v1
+      - name: Upload Release Assets
+        uses: softprops/action-gh-release@v2
         with:
-          files: |
-            build/libs/*.jar
-          token: ${{ secrets.GITHUB_TOKEN }}
+          files: build/libs/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
