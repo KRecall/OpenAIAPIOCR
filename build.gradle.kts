@@ -1,12 +1,10 @@
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-
 val groupName = "io.github.octestx.krecall.plugins.captureScreen.kdespectacle"
 val versionName = "1.0-SNAPSHOT"
 val pluginPackName = "OpenAIAPIOCR"
 val plugins = listOf(
     PluginMetadata(
         pluginId = "OpenAIAPIOCR",
-        supportPlatform = setOf(OS.LINUX),
+        supportPlatform = setOf(OS.LINUX, OS.WIN, OS.MACOS, OS.OTHER),
         supportUI = true,
         // 插件类的全限定名
         pluginClass = "$groupName.OpenAIAPIOCR"
