@@ -1,4 +1,4 @@
-val groupName = "io.github.octestx.krecall.plugins.captureScreen.kdespectacle"
+val groupName = "io.github.octestx.krecall.plugins.ocr.openaiapiocr"
 val versionName = "1.0-SNAPSHOT"
 val pluginPackName = "OpenAIAPIOCR"
 val plugins = listOf(

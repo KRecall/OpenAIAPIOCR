@@ -1,4 +1,4 @@
-package io.github.octestx.krecall.plugins.captureScreen.kdespectacle
+package io.github.octestx.krecall.plugins.ocr.openaiapiocr
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
